@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@elysiajs/static": "^1.0.3",
+    "@elysiajs/stream": "^1.0.2",
     "dotenv": "^16.4.5",
     "elysia": "^1.0.23"
   }
