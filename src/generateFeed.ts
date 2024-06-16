@@ -92,7 +92,7 @@ async function generateBookItems(
     return Promise.resolve({
       title: title.trim(),
       url,
-      length: 0,
+      length: fileInfo.size,
       guid: filePath,
       pubDate,
     });
@@ -114,7 +114,6 @@ function serializeChannel({
   <link>${base_url}</link>
   <description>${description}</description>
   <language>${language}</language>
-  <!-- <itunes:category text="Audiobooks"/> -->
   ${items.map(serializeChannelItems).join('\n')}
 </channel>
 `;
@@ -127,9 +126,9 @@ function serializeChannelItems({
   pubDate,
 }: ChannelItem): string {
   return `<item>
-  <title>${title}</title>
-  <enclosure url="${url}" length="${length}" type="audio/mpeg" />
-  <guid>${url}</guid>
-  <pubDate>${pubDate}</pubDate>
-</item>`;
+    <title>${title}</title>
+    <enclosure url="${url}" length="${length}" type="audio/mpeg" />
+    <guid>${url}</guid>
+    <pubDate>${pubDate}</pubDate>
+  </item>`;
 }
