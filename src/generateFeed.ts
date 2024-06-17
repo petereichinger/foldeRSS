@@ -8,6 +8,7 @@ export type GenerateOptions = {
   baseUrl: string;
   prefixUrl: string;
 };
+
 type ChannelItem = {
   title: string;
   url: string;
